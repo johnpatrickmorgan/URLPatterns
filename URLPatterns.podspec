@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/johnpatrickmorgan/URLPatterns"
   s.license          = 'MIT'
   s.author           = { "johnmorgan" => "johnpatrickmorganuk@gmail.com" }
-  s.source           = { :git => "https://github.com//johnpatrickmorgan/URLPatterns.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/johnpatrickmorgan/URLPatterns.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/jpmmusic'
 
   s.ios.deployment_target = '8.0'
