@@ -1,0 +1,14 @@
+PODS:
+  - URLPatterns (0.1.0)
+
+DEPENDENCIES:
+  - URLPatterns (from `../`)
+
+EXTERNAL SOURCES:
+  URLPatterns:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  URLPatterns: f01472d7655c87767efb582362ef017c3cc1004c
+
+COCOAPODS: 0.39.0

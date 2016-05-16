@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'URLPatterns_Example', :exclusive => true do
+  pod 'URLPatterns', :path => '../'
+end
+
+target 'URLPatterns_Tests', :exclusive => true do
+  pod 'URLPatterns', :path => '../'
+
+  
+end
