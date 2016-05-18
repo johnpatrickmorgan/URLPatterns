@@ -8,32 +8,18 @@
 
 import Foundation
 
-public struct Begins<E> {
-    
-    var elements: [E]
-    
-    public init(_ elements: E...) {
-        
-        self.elements = elements
-    }
+public func ~=<E>(pattern: (Counted<E>) -> Bool, value: Counted<E>) -> Bool {
+
+    return pattern(value)
 }
 
-public func ~=<E: Equatable>(pattern: Begins<E>, value: Counted<E>) -> Bool {
-
-    return Array(value.elements.prefix(pattern.elements.count)) == pattern.elements
+public func ends<E: Equatable>(patternElements: E...) -> (Counted<E>) -> Bool {
+    
+    return { Array($0.elements.suffix(patternElements.count)) == patternElements }
 }
 
-public struct Ends<E> {
-    
-    var elements: [E]
-    
-    public init(_ elements: E...) {
-        
-        self.elements = elements
-    }
-}
 
-public func ~=<E: Equatable>(pattern: Ends<E>, value: Counted<E>) -> Bool {
+public func begins<E: Equatable>(patternElements: E...) -> (Counted<E>) -> Bool {
     
-    return Array(value.elements.suffix(pattern.elements.count)) == pattern.elements
+    return { Array($0.elements.prefix(patternElements.count)) == patternElements }
 }
