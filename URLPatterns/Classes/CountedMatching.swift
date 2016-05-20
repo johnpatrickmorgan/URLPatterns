@@ -1,5 +1,5 @@
 //
-//  CountedExpressionMatching.swift
+//  CountedMatching.swift
 //  Pods
 //
 //  Created by John Morgan on 14/05/2016.
