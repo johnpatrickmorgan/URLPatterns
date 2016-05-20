@@ -14,13 +14,13 @@ if case .N4("user", let userId, "profile", _) = url.countedPathElements() {
 }
 ```
 
- `Counted` enables us to pattern match paths with any number of elements, and supports **expression**, **wildcard** and **value-binding** patterns for its associated values. It can also match based on `Begins` and `Ends`, which match based on the first/ last elements only. Here's an example of a DeepLink enum which has a failable initializer that takes an `NSURL`:
+ `Counted` enables us to pattern match paths with any number of elements, and supports **expression**, **wildcard** and **value-binding** patterns for its associated values. It can match based on `Begins` and `Ends`, which match based on the first/ last elements only, and can even match a particular path element based on a regular expression. Here's an example of a `DeepLink` enum which has a failable initializer that takes an `NSURL`:
 
 
 ```swift
 enum DeepLink {
 
-    case Home, History, Settings, Terms, News
+    case Home, History, Settings, Terms, News, Contact
     case Chat(room: String)
     case Profile(userId: String)
 }
@@ -39,9 +39,9 @@ extension DeepLink {
         case .N2(_, "settings"):                    self = .Settings
         case .N2("chat", let room):                 self = .Chat(room: room)
         case .N3("users", let userId, "profile"):   self = .Profile(userId: userId)
+        case .N1(try? regex(contact.*))             self = .Contact
         case begins("news", "latest"):              self = .News
-        case ends("terms"):                         self = .Terms
-
+        case ends("terms"):                         self = .Terms		
         default:                                    return nil
         }
     }
