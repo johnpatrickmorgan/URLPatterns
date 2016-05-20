@@ -8,41 +8,44 @@
 
 import Foundation
 
-
-public protocol PatternMatching {
+public protocol CountedMatching {
     
-    associatedtype MatchValue
+    associatedtype Value
     
-    func ~=(lhs: Self, rhs: MatchValue) -> Bool
+    func matches(value: Counted<Value>) -> Bool
 }
 
-extension String: PatternMatching {
-
-    public typealias MatchValue = String
+public func ~=<E: CountedMatching where E.Value: PatternMatching>(pattern: E, value: Counted<E.Value>) -> Bool {
+    
+    return pattern.matches(value)
 }
 
-public func ~=<E>(pattern: (Counted<E>) -> Bool, value: Counted<E>) -> Bool {
-
-    return pattern(value)
-}
-
-public func ~=<E: PatternMatching>(patterns: [E], values: [E.MatchValue]) -> Bool {
+public struct Begins<Element: PatternMatching>: CountedMatching {
     
-    guard patterns.count == values.count else { return false }
+    var patternElements: [Element]
     
-    for (index, pattern) in patterns.enumerate() {
-        if !(pattern ~= values[index]) { return false }
+    public init(_ elements: Element...) {
+
+        self.patternElements = elements
     }
-    return true
+    
+    public func matches(value: Counted<Element.MatchValue>) -> Bool {
+        
+        return patternElements ~= Array(value.elements.prefix(patternElements.count))
+    }
 }
 
-public func ends<E: PatternMatching where E.MatchValue == String>(patternElements: E...) -> (Counted<String>) -> Bool {
+public struct Ends<Element: PatternMatching>: CountedMatching {
     
-    return { patternElements ~= Array($0.elements.suffix(patternElements.count)) }
-}
-
-
-public func begins<E: PatternMatching>(patternElements: E...) -> (Counted<E.MatchValue>) -> Bool {
+    var patternElements: [Element]
     
-    return { patternElements ~= Array($0.elements.prefix(patternElements.count)) }
+    public init(_ elements: Element...) {
+        
+        self.patternElements = elements
+    }
+    
+    public func matches(value: Counted<Element.MatchValue>) -> Bool {
+        
+        return patternElements ~= Array(value.elements.suffix(patternElements.count))
+    }
 }
