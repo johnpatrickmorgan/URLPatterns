@@ -28,6 +28,8 @@ struct DeepLinker {
             print("Opening news")
         case .Terms:
             print("Opening terms")
+        case .Contact:
+            print("Opening contact")
         }
         return true
     }

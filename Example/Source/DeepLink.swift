@@ -11,7 +11,7 @@ import URLPatterns
 
 enum DeepLink {
     
-    case Home, History, Settings, Terms, News
+    case Home, History, Settings, Terms, News, Contact
     case Chat(room: String)
     case Profile(userId: String)
 }
@@ -32,6 +32,8 @@ extension DeepLink {
         case .N3("users", let userId, "profile"):   self = .Profile(userId: userId)
         case begins("news", "latest"):              self = .News
         case ends("terms"):                         self = .Terms
+        case .N1(try? regex("contact-us.*")):
+                                                    self = .Contact
             
         default:                                    return nil
         }
