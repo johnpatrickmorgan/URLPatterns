@@ -8,31 +8,40 @@
 
 import Foundation
 
-public func ~=(pattern: String -> Bool, value: String) -> Bool {
+public func ~=(regex: Regex, string: String) -> Bool {
     
-    return pattern(value)
+    return regex.matches(string, options: [.Anchored])
 }
 
-public func ~=(pattern: (String -> Bool)?, value: String) -> Bool {
+public struct Regex: PatternMatching {
     
-    return pattern?(value) ?? false
-}
-
-public func regex(regExp: NSRegularExpression) -> (String) -> Bool {
+    public typealias MatchValue = String
     
-    return { regExp.matches($0, options: [.Anchored]) }
-}
-
-public func regex(pattern: String, _ options: NSRegularExpressionOptions = [.CaseInsensitive]) throws -> (String) -> Bool {
+    public private(set) var regex: NSRegularExpression?
     
-    let regExp = try NSRegularExpression(pattern: pattern, options: options)
+    public init(regExp: NSRegularExpression) {
+        
+        self.regex = regExp
+    }
     
-    return regex(regExp)
+    public init(_ pattern: String, _ options: NSRegularExpressionOptions = [.CaseInsensitive]) {
+        
+        do {
+            self.regex = try NSRegularExpression(pattern: pattern, options: options)
+        } catch {
+            assertionFailure("Invalid Regex: \(error)")
+        }
+    }
+    
+    func matches(string: String, options: NSMatchingOptions = []) -> Bool {
+    
+        return regex?.matchesWhole(string, options: options) ?? false
+    }
 }
 
 extension NSRegularExpression {
     
-    func matches(string: String, options: NSMatchingOptions = []) -> Bool {
+    func matchesWhole(string: String, options: NSMatchingOptions = []) -> Bool {
         
         let length = (string as NSString).length
         var hit = false
