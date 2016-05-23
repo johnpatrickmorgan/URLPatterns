@@ -39,9 +39,9 @@ extension DeepLink {
         case .N2(_, "settings"):                    self = .Settings
         case .N2("chat", let room):                 self = .Chat(room: room)
         case .N3("users", let userId, "profile"):   self = .Profile(userId: userId)
-        case .N1(try? regex(contact.*))             self = .Contact
-        case begins("news", "latest"):              self = .News
-        case ends("terms"):                         self = .Terms		
+        case .N1(Regex(contact.*))                  self = .Contact
+        case Begins("news", "latest"):              self = .News
+        case Ends("terms"):                         self = .Terms		
         default:                                    return nil
         }
     }
