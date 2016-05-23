@@ -20,9 +20,8 @@ public enum Counted<Element> {
     case N7(E, E, E, E, E, E, E)
     case N8(E, E, E, E, E, E, E, E)
     case N9(E, E, E, E, E, E, E, E, E)
-    case N10(E, E, E, E, E, E, E, E, E, E)
     
-    indirect case N10Plus(E, E, E, E, E, E, E, E, E, E, Counted<E>)
+    indirect case N10(E, E, E, E, E, E, E, E, E, E, plus: Counted<E>)
     
     public init(_ elements: [Element]) {
         
@@ -49,10 +48,8 @@ public enum Counted<Element> {
             self = .N8(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7])
         case 9:
             self = .N9(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7], e[8])
-        case 10:
-            self = .N10(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7], e[8], e[9])
         default:
-            self = .N10Plus(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7], e[8], e[9], Counted(Array(e[10..<elements.endIndex])))
+            self = .N10(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7], e[8], e[9], plus: Counted(Array(e[10..<elements.endIndex])))
         }
     }
     
@@ -89,9 +86,7 @@ public enum Counted<Element> {
             return [e1, e2, e3, e4, e5, e6, e7, e8]
         case let .N9(e1, e2, e3, e4, e5, e6, e7, e8, e9):
             return [e1, e2, e3, e4, e5, e6, e7, e8, e9]
-        case let .N10(e1, e2, e3, e4, e5, e6, e7, e8, e9, e10):
-            return [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10]
-        case let .N10Plus(e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, remainder):
+        case let .N10(e1, e2, e3, e4, e5, e6, e7, e8, e9, e10, remainder):
             return [e1, e2, e3, e4, e5, e6, e7, e8, e9, e10] + remainder.elements
         }
     }
