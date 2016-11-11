@@ -10,7 +10,7 @@ import Foundation
 
 public func ~=(regex: Regex, string: String) -> Bool {
     
-    return regex.matches(string, options: [.Anchored])
+    return regex.matches(string, options: [.anchored])
 }
 
 public struct Regex: PatternMatching {
@@ -24,7 +24,7 @@ public struct Regex: PatternMatching {
         self.regex = regExp
     }
     
-    public init(_ pattern: String, _ options: NSRegularExpressionOptions = [.CaseInsensitive]) {
+    public init(_ pattern: String, _ options: NSRegularExpression.Options = [.caseInsensitive]) {
         
         do {
             self.regex = try NSRegularExpression(pattern: pattern, options: options)
@@ -33,7 +33,7 @@ public struct Regex: PatternMatching {
         }
     }
     
-    func matches(string: String, options: NSMatchingOptions = []) -> Bool {
+    func matches(_ string: String, options: NSRegularExpression.MatchingOptions = []) -> Bool {
     
         return regex?.matchesWhole(string, options: options) ?? false
     }
@@ -41,15 +41,15 @@ public struct Regex: PatternMatching {
 
 extension NSRegularExpression {
     
-    func matchesWhole(string: String, options: NSMatchingOptions = []) -> Bool {
+    func matchesWhole(_ string: String, options: NSRegularExpression.MatchingOptions = []) -> Bool {
         
         let length = (string as NSString).length
         var hit = false
-        enumerateMatchesInString(string, options: options, range: NSMakeRange(0, length)) { result, flags, stop in
+        enumerateMatches(in: string, options: options, range: NSMakeRange(0, length)) { result, flags, stop in
             guard let match = result else { return }
             if match.range.location == 0 && match.range.length == length {
                 hit = true
-                stop.memory = true
+                stop.pointee = true
             }
         }
         return hit

@@ -13,13 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions options: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions options: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        if let url = options?[UIApplicationLaunchOptionsURLKey] as? NSURL, link = DeepLink(url: url) {
+        if let url = options?[UIApplicationLaunchOptionsKey.url] as? URL, let link = DeepLink(url: url) {
             DeepLinker.open(link)
         }
         
-        let testURL = NSURL(string: "myscheme://myhost/users/john_morgan12/profile")!
+        let testURL = URL(string: "myscheme://myhost/users/john_morgan12/profile")!
         
         if let link = DeepLink(url: testURL) {
             DeepLinker.open(link)
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         if let link = DeepLink(url: url) {
             return DeepLinker.open(link)

@@ -11,28 +11,28 @@ import URLPatterns
 
 enum DeepLink {
     
-    case Home, History, Settings, Terms, News, Contact
-    case Chat(room: String)
-    case Profile(userId: String)
+    case home, history, settings, terms, news, contact
+    case chat(room: String)
+    case profile(userId: String)
 }
 
 extension DeepLink {
     
-    init?(url: NSURL) {
+    init?(url: URL) {
         
         guard url.scheme == "myscheme" else { return nil }
         guard url.host == "myhost" else { return nil }
         
         switch url.countedPathComponents() {
 
-        case .N0, .N1(""):                          self = .Home
-        case .N1("history"):                        self = .History
-        case .N2(_, "settings"):                    self = .Settings
-        case .N2("chat", let room):                 self = .Chat(room: room)
-        case .N3("users", let userId, "profile"):   self = .Profile(userId: userId)
-        case Ends(Regex("contact-us.*")):           self = .Contact
-        case Ends("terms"):                         self = .Terms
-        case Begins("news", "latest"):              self = .News
+        case .n0, .n1(""):                          self = .home
+        case .n1("history"):                        self = .history
+        case .n2(_, "settings"):                    self = .settings
+        case .n2("chat", let room):                 self = .chat(room: room)
+        case .n3("users", let userId, "profile"):   self = .profile(userId: userId)
+        case Ends(Regex("contact-us.*")):           self = .contact
+        case Ends("terms"):                         self = .terms
+        case Begins("news", "latest"):              self = .news
             
         default:                                    return nil
         }

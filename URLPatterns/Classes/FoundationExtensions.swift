@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSURLComponents {
+extension URLComponents {
     
     public func queryArguments() -> [String : String?] {
         
@@ -33,30 +33,29 @@ extension NSURLComponents {
     }
 }
 
-extension NSURL {
+extension URL {
     
-    public func countedPathComponents(excludingLeadingBackslash: Bool = true) -> Counted<String> {
+    public func countedPathComponents(_ excludingLeadingBackslash: Bool = true) -> Counted<String> {
         
-        var components = pathComponents ?? []
-        if let first = components.first where excludingLeadingBackslash && first == "/" {
-            components.removeFirst()
+        if let first = pathComponents.first , excludingLeadingBackslash && first == "/" {
+            return Counted(sequence: pathComponents.dropFirst())
         }
-        return Counted(components)
+        return Counted(pathComponents)
     }
 }
 
-extension NSURL {
+extension URL {
     
     public func queryArguments() -> [String : String?] {
         
-        guard let components = NSURLComponents(URL: self, resolvingAgainstBaseURL: true) else { return [:] }
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true) else { return [:] }
         
         return components.queryArguments()
     }
     
     public func flatQueryArguments() -> [String : String] {
         
-        guard let components = NSURLComponents(URL: self, resolvingAgainstBaseURL: true) else { return [:] }
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: true) else { return [:] }
         
         return components.flatQueryArguments()
     }

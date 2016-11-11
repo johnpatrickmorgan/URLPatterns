@@ -10,25 +10,25 @@ import Foundation
 
 struct DeepLinker {
     
-    static func open(link: DeepLink, animated: Bool = true) -> Bool {
+    @discardableResult static func open(_ link: DeepLink, animated: Bool = true) -> Bool {
         
         switch link {
             
-        case .Profile(let userId):
+        case .profile(let userId):
             print("Opening profile for \(userId)")
-        case .History:
+        case .history:
             print("Opening history")
-        case .Chat(let room):
+        case .chat(let room):
             print("Opening chat room \(room)")
-        case .Home:
+        case .home:
             print("Opening home")
-        case .Settings:
+        case .settings:
             print("Opening settings")
-        case .News:
+        case .news:
             print("Opening news")
-        case .Terms:
+        case .terms:
             print("Opening terms")
-        case .Contact:
+        case .contact:
             print("Opening contact")
         }
         return true
