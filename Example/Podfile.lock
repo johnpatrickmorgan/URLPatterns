@@ -1,5 +1,5 @@
 PODS:
-  - URLPatterns (0.1.2)
+  - URLPatterns (0.1.7)
 
 DEPENDENCIES:
   - URLPatterns (from `../`)
@@ -9,6 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  URLPatterns: f1c00e1a4c1fbb659b462e7fa78603a6b4c114c5
+  URLPatterns: adb202bf89753b676caaf39ab2196a023663400d
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 182c77df5438140812544cfb9a3d8c11764e96f5
+
+COCOAPODS: 1.1.1

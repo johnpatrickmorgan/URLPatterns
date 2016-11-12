@@ -1,11 +1,13 @@
 use_frameworks!
 
-target 'URLPatterns_Example', :exclusive => true do
+target 'URLPatterns_Example' do
+    
   pod 'URLPatterns', :path => '../'
-end
-
-target 'URLPatterns_Tests', :exclusive => true do
-  pod 'URLPatterns', :path => '../'
-
+  
+  target 'URLPatterns_Tests' do
+      
+      inherit! :search_paths
+      
+  end
   
 end
