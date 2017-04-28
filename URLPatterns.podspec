@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "URLPatterns"
-  s.version          = "0.1.8"
+  s.version          = "0.1.9"
   s.summary          = "A small library to enable more idiomatic Swift pattern matching of URL path elements."
 
   s.description      = <<-DESC
@@ -16,8 +16,7 @@ Pod::Spec.new do |s|
   s.author           = { "johnmorgan" => "johnpatrickmorganuk@gmail.com" }
   s.source           = { :git => "https://github.com/johnpatrickmorgan/URLPatterns.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/jpmmusic'
-
   s.ios.deployment_target = '8.0'
-
-  s.source_files = 'URLPatterns/Classes/**/*'
+  s.osx.deployment_target = '10.10'
+  s.source_files = 'Sources/**/*'
 end
