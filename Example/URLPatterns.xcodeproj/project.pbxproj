@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02EDAA03A016888E6258C2A5 /* Pods_URLPatterns_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9236F91C8FF75BA85BE99BD0 /* Pods_URLPatterns_Tests.framework */; };
 		1454E9F3C9433FB6C25426BE /* Pods_URLPatterns_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0184953C639FB915E78895 /* Pods_URLPatterns_Example.framework */; };
 		52484F101CD4086500D65195 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52484F0E1CD4086500D65195 /* DeepLink.swift */; };
 		52484F111CD4086500D65195 /* DeepLinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52484F0F1CD4086500D65195 /* DeepLinker.swift */; };
 		52A2D3D41CE6834B0047B233 /* TODO.md in Resources */ = {isa = PBXBuildFile; fileRef = 52A2D3D31CE6834B0047B233 /* TODO.md */; };
+		52D533A51F84314F0066E824 /* CountedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D533A41F84314F0066E824 /* CountedTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -22,7 +24,11 @@
 		3D0184953C639FB915E78895 /* Pods_URLPatterns_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URLPatterns_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52484F0E1CD4086500D65195 /* DeepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		52484F0F1CD4086500D65195 /* DeepLinker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinker.swift; sourceTree = "<group>"; };
+		529799A21F843BEE005FD2B4 /* URLPatterns.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = URLPatterns.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A2D3D31CE6834B0047B233 /* TODO.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = TODO.md; path = ../TODO.md; sourceTree = "<group>"; };
+		52D533A21F84314F0066E824 /* URLPatterns_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = URLPatterns_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D533A41F84314F0066E824 /* CountedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountedTests.swift; sourceTree = "<group>"; };
+		52D533A61F84314F0066E824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* URLPatterns_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URLPatterns_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +46,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52D5339F1F84314F0066E824 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02EDAA03A016888E6258C2A5 /* Pods_URLPatterns_Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,10 +68,20 @@
 		23CBE0C64C081B046FDA23F3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				529799A21F843BEE005FD2B4 /* URLPatterns.framework */,
 				3D0184953C639FB915E78895 /* Pods_URLPatterns_Example.framework */,
 				9236F91C8FF75BA85BE99BD0 /* Pods_URLPatterns_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52D533A31F84314F0066E824 /* URLPatterns_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				52D533A41F84314F0066E824 /* CountedTests.swift */,
+				52D533A61F84314F0066E824 /* Info.plist */,
+			);
+			path = URLPatterns_Tests;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -65,6 +89,7 @@
 			children = (
 				607FACF51AFB993E008FA782 /* Metadata */,
 				607FACD21AFB9204008FA782 /* Source */,
+				52D533A31F84314F0066E824 /* URLPatterns_Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 				68519192925AA69F3453DB49 /* Pods */,
 				23CBE0C64C081B046FDA23F3 /* Frameworks */,
@@ -75,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* URLPatterns_Example.app */,
+				52D533A21F84314F0066E824 /* URLPatterns_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +153,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		52D533A11F84314F0066E824 /* URLPatterns_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D533AB1F84314F0066E824 /* Build configuration list for PBXNativeTarget "URLPatterns_Tests" */;
+			buildPhases = (
+				F2AFEE7997D2F75868F29A8C /* [CP] Check Pods Manifest.lock */,
+				52D5339E1F84314F0066E824 /* Sources */,
+				52D5339F1F84314F0066E824 /* Frameworks */,
+				52D533A01F84314F0066E824 /* Resources */,
+				715827014660CA38B33D2746 /* [CP] Embed Pods Frameworks */,
+				391F64F4CABF3F9462EC6EFA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = URLPatterns_Tests;
+			productName = URLPatterns_Tests;
+			productReference = 52D533A21F84314F0066E824 /* URLPatterns_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		607FACCF1AFB9204008FA782 /* URLPatterns_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "URLPatterns_Example" */;
@@ -153,13 +199,19 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					52D533A11F84314F0066E824 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FTFY22HR9H;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -177,11 +229,19 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* URLPatterns_Example */,
+				52D533A11F84314F0066E824 /* URLPatterns_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		52D533A01F84314F0066E824 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,6 +256,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		391F64F4CABF3F9462EC6EFA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URLPatterns_Tests/Pods-URLPatterns_Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5923F01BF69475D72943D87C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,6 +284,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URLPatterns_Example/Pods-URLPatterns_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		715827014660CA38B33D2746 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-URLPatterns_Tests/Pods-URLPatterns_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/URLPatterns/URLPatterns.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLPatterns.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URLPatterns_Tests/Pods-URLPatterns_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BF4EA70D20B99AF75B9D91E4 /* [CP] Check Pods Manifest.lock */ = {
@@ -235,18 +328,47 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-URLPatterns_Example/Pods-URLPatterns_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/URLPatterns/URLPatterns.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLPatterns.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-URLPatterns_Example/Pods-URLPatterns_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2AFEE7997D2F75868F29A8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-URLPatterns_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52D5339E1F84314F0066E824 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D533A51F84314F0066E824 /* CountedTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +401,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		52D533A91F84314F0066E824 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B1EC35024328304676A5457 /* Pods-URLPatterns_Tests.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FTFY22HR9H;
+				INFOPLIST_FILE = URLPatterns_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.johnpatrickmorgan.URLPatterns-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		52D533AA1F84314F0066E824 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F225D1BCF4B07C3A6EB23657 /* Pods-URLPatterns_Tests.release.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = FTFY22HR9H;
+				INFOPLIST_FILE = URLPatterns_Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.johnpatrickmorgan.URLPatterns-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -323,7 +483,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -363,7 +523,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -378,7 +538,8 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = URLPatterns_Example;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -392,13 +553,23 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = URLPatterns_Example;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52D533AB1F84314F0066E824 /* Build configuration list for PBXNativeTarget "URLPatterns_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D533A91F84314F0066E824 /* Debug */,
+				52D533AA1F84314F0066E824 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "URLPatterns" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
