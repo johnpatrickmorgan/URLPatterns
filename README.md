@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/cocoapods/v/URLPatterns.svg?style=flat)](http://cocoapods.org/pods/URLPatterns)
 [![License](https://img.shields.io/cocoapods/l/URLPatterns.svg?style=flat)](http://cocoapods.org/pods/URLPatterns)
-![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg)
+![Swift](https://img.shields.io/badge/Swift-5.3-orange.svg)
 
 URLPatterns is a small library to enable more idiomatic Swift pattern matching of URL path elements. 
 

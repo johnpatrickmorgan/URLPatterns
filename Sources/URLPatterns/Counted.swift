@@ -144,3 +144,10 @@ extension Counted: ExpressibleByArrayLiteral {
         self.init(elements)
     }
 }
+
+extension Counted: Equatable where Element: Equatable {
+    
+    public static func == (lhs: Counted, rhs: Counted) -> Bool {
+        return lhs.elements == rhs.elements
+    }
+}
