@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 
 import PackageDescription
 
@@ -10,10 +10,12 @@ let package = Package(
   dependencies: [],
   targets: [
     .target(
-        name: "URLPatterns",
-        dependencies: []),
+      name: "URLPatterns",
+      dependencies: []
+    ),
     .testTarget(
-        name: "URLPatternsTests",
-        dependencies: ["URLPatterns"]),
+      name: "URLPatternsTests",
+      dependencies: ["URLPatterns"]
+    ),
   ]
 )
