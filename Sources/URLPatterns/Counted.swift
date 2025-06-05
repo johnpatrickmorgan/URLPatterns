@@ -151,3 +151,5 @@ extension Counted: Equatable where Element: Equatable {
         return lhs.elements == rhs.elements
     }
 }
+
+extension Counted: Sendable where Element: Sendable {}
